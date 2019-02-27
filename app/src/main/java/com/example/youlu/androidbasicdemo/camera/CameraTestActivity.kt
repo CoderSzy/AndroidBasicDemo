@@ -1,26 +1,23 @@
 package com.example.youlu.androidbasicdemo.camera
 
+import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.hardware.Camera
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
 import com.example.youlu.androidbasicdemo.R
+import com.example.youlu.androidbasicdemo.base.BaseActivity
+import com.example.youlu.androidbasicdemo.util.ToastUtil
 import kotlinx.android.synthetic.main.activity_camera_test.*
 
-class CameraTestActivity : AppCompatActivity(), View.OnClickListener {
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.btn_capture -> {
-                capturePhoto()
-            }
-            else -> {
-            }
-        }
-    }
+
+class CameraTestActivity : BaseActivity(), View.OnClickListener {
 
     private var mCamera: Camera? = null
     private var mPreview: CameraPreview? = null
@@ -30,15 +27,7 @@ class CameraTestActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_camera_test)
-        initView()
-        initData()
-        initListener()
-    }
-
-    private fun initView() {
+    override fun initView() {
         mCamera = getCameraInstance()
         mPreview = mCamera?.let {
             CameraPreview(this, it)
@@ -62,13 +51,24 @@ class CameraTestActivity : AppCompatActivity(), View.OnClickListener {
         stopPreviewAndReleaseCamera()
     }
 
-    private fun initData() {
-
-    }
-
-    private fun initListener() {
+    override fun initListener() {
         btn_capture.setOnClickListener(this)
     }
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_camera_test
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_capture -> {
+                capturePhoto()
+            }
+            else -> {
+            }
+        }
+    }
+
 
     private fun getCameraInstance(): Camera? {
         if (checkCameraHardware()) {

@@ -3,12 +3,19 @@
 
     <!--main-->
     <string name="title">Android 基础实践</string>
+    <string name="btn_menu">Menu</string>
     <string name="btn_camera">Camera</string>
 
     <!--camera-->
     <string name="btn_capture">capture</string>
     <string name="hint_no_camera">this device has no camera!</string>
     <string name="desc_result">capture result</string>
+    <string name="msg_permission_grant">权限获取成功！</string>
+
+    <!--menu-->
+    <string name="title_menu">Menu Practice</string>
+    <string name="tv_menu_subject">Time List</string>
+
     <!--menu options-->
     <string name="item_search">搜索</string>
     <string name="item_settings">设置</string>

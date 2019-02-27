@@ -10,9 +10,21 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_menu"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/Base.ThemeOverlay.AppCompat">
 
     </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/tv_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="@string/tv_menu_subject"
+        android:textSize="16sp" />
 
     <ListView
         android:id="@+id/lv_menu"
