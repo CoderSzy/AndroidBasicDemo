@@ -9,5 +9,11 @@
     <string name="btn_capture">capture</string>
     <string name="hint_no_camera">this device has no camera!</string>
     <string name="desc_result">capture result</string>
+    <!--menu options-->
+    <string name="item_search">搜索</string>
+    <string name="item_settings">设置</string>
+
+    <!--menu context mode-->
+    <string name="item_delete">删除</string>
 
 </resources>

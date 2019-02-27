@@ -27,6 +27,8 @@
             android:screenOrientation="landscape">
 
         </activity>
+        <activity android:name=".menu.MenuTestActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
