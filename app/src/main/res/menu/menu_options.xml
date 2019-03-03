@@ -4,9 +4,10 @@
 
     <item android:id="@+id/menu_search"
         android:title="@string/item_search"
+        android:icon="@drawable/icon_menu_search"
         app:showAsAction="always"/>
 
     <item android:id="@+id/menu_settings"
-        android:title="@string/item_delete"/>
+        android:title="@string/item_settings"/>
 
 </menu>

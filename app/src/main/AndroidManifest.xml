@@ -24,11 +24,13 @@
         </activity>
         <activity
             android:name=".camera.CameraTestActivity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="portrait">
 
         </activity>
         <activity android:name=".menu.MenuTestActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

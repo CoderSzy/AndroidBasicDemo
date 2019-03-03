@@ -14,4 +14,27 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+
+    @Test
+    fun removeEleFromList() {
+        val datas = mutableListOf(1, 2, 3, 4, 5)
+        val datasFilter = mutableListOf<Int>()
+//        datas.forEach {
+//            if (it % 2 == 0) {
+//                datas.removeAt(it)
+//            }
+//        }
+//        for (i in 0..datas.size) {
+//            if (datas[i] % 2 == 0) {
+//                datas.removeAt(i)
+//            }
+//        }
+        datas.forEach {
+            if (it % 2 == 0) {
+                datasFilter.add(datas[it])
+            }
+        }
+        datas.removeAll(datasFilter)
+        println("size is ${datas.size}")
+    }
 }

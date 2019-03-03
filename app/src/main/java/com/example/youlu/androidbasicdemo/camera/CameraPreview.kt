@@ -53,11 +53,12 @@ class CameraPreview(context: Context, private var mCamera: Camera?) : SurfaceVie
     override fun surfaceCreated(holder: SurfaceHolder?) {
         mCamera?.apply {
             try {
-                parameters.apply {
-                    parameters.setRotation(90)
-                    requestLayout()
-                }
+//                parameters.apply {
+//                    parameters.setRotation(90)
+//                    requestLayout()
+//                }
                 setPreviewDisplay(holder)
+//                setDisplayOrientation(270)
                 startPreview()
             } catch (e: Exception) {
                 Log.d("TAG", "")
