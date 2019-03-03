@@ -58,7 +58,7 @@ class CameraPreview(context: Context, private var mCamera: Camera?) : SurfaceVie
 //                    requestLayout()
 //                }
                 setPreviewDisplay(holder)
-//                setDisplayOrientation(270)
+                setDisplayOrientation(90)
                 startPreview()
             } catch (e: Exception) {
                 Log.d("TAG", "")

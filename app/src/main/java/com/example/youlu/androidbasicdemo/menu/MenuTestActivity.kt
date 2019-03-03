@@ -7,10 +7,27 @@ import android.widget.ListView
 import android.widget.PopupMenu
 import com.example.youlu.androidbasicdemo.R
 import com.example.youlu.androidbasicdemo.base.BaseActivity
+import com.example.youlu.androidbasicdemo.dialog.HintDialogFragment
 import com.example.youlu.androidbasicdemo.util.ToastUtil
 import kotlinx.android.synthetic.main.activity_menu_test.*
 
-class MenuTestActivity : BaseActivity(), View.OnLongClickListener {
+private const val TAG_HINT_DIALOG = "hintDialog"
+
+class MenuTestActivity : BaseActivity(), View.OnLongClickListener, HintDialogFragment.OnFragmentInactionListener {
+    override fun onBtnPositiveClick() {
+        val isRemoved = mDataSrc.removeAll(mDataFilter)
+        if (isRemoved) {
+            mAdapter.notifyDataSetChanged()
+            mDataFilter.clear()
+            ToastUtil.showToast(this, R.string.msg_menu_delete_success)
+        }
+    }
+
+    override fun onBtnNegativeClick() {
+        mDataFilter.clear()
+        ToastUtil.showToast(this, R.string.msg_menu_delete_cancel)
+    }
+
     override fun onLongClick(v: View?): Boolean {
         when (v?.id) {
             R.id.tv_subject -> {
@@ -37,12 +54,12 @@ class MenuTestActivity : BaseActivity(), View.OnLongClickListener {
 
     private val mActionCallback = object : ActionMode.Callback {
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
-            when (item?.itemId) {
+            return when (item?.itemId) {
                 R.id.menu_delete -> {
-                    return true
+                    true
                 }
                 else -> {
-                    return false
+                    false
                 }
             }
         }
@@ -62,14 +79,15 @@ class MenuTestActivity : BaseActivity(), View.OnLongClickListener {
 
     }
 
+    private var hintDialog: HintDialogFragment? = null
     private val mMultiChoiceListener = object : AbsListView.MultiChoiceModeListener {
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem?): Boolean {
             return when (item?.itemId) {
                 R.id.menu_delete -> {
-                    mDataSrc.removeAll(mDataFilter)
-                    mDataFilter.clear()
-                    mAdapter.notifyDataSetChanged()
-                    ToastUtil.showToast(this@MenuTestActivity, "delete success!")
+                    if (hintDialog == null) {
+                        hintDialog = HintDialogFragment.newInstance(getString(R.string.msg_ensure_delete, mDataFilter.size))
+                    }
+                    hintDialog?.show(supportFragmentManager, TAG_HINT_DIALOG)
                     true
                 }
                 else -> {

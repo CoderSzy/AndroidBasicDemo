@@ -37,4 +37,23 @@ class ExampleUnitTest {
         datas.removeAll(datasFilter)
         println("size is ${datas.size}")
     }
+
+    @Test
+    fun addBitToString() {
+        val dataList = mutableListOf(1, 2, 11, 5, 12)
+//        dataList.forEach {
+//            val element = "${dataList[it]}"
+//            if (element.length < 2) {
+//                StringBuilder(element).insert(0, "0")
+//            }
+//        }
+        for (i in 0 until dataList.size) {
+            val element = "${dataList[i]}"
+            if (element.length < 2) {
+                val insert = StringBuilder(element).insert(0, "0").toString()
+                println(insert)
+            }
+        }
+        println(dataList)
+    }
 }
