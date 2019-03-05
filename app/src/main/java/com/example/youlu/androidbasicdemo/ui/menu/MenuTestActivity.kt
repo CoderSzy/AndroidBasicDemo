@@ -1,13 +1,14 @@
-package com.example.youlu.androidbasicdemo.menu
+package com.example.youlu.androidbasicdemo.ui.menu
 
+import android.app.SearchManager
+import android.content.ComponentName
+import android.content.Context
+import android.support.v7.widget.SearchView
 import android.view.*
-import android.widget.AbsListView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.PopupMenu
+import android.widget.*
 import com.example.youlu.androidbasicdemo.R
 import com.example.youlu.androidbasicdemo.base.BaseActivity
-import com.example.youlu.androidbasicdemo.dialog.HintDialogFragment
+import com.example.youlu.androidbasicdemo.ui.dialog.HintDialogFragment
 import com.example.youlu.androidbasicdemo.util.ToastUtil
 import kotlinx.android.synthetic.main.activity_menu_test.*
 
@@ -147,15 +148,23 @@ class MenuTestActivity : BaseActivity(), View.OnLongClickListener, HintDialogFra
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_options, menu)
+//        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+//        val menuItem = menu?.findItem(R.id.menu_search)
+//        val searchView = menuItem?.actionView as SearchView?
+//        searchView?.apply {
+//            setSearchableInfo(searchManager.getSearchableInfo(
+//                    ComponentName(this@MenuTestActivity,"com.example.youlu.androidbasicdemo.ui.search.SearchableActivity")))
+//            setIconifiedByDefault(false)
+//        }
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         return when (item?.itemId) {
-            R.id.menu_search -> {
-                ToastUtil.showToast(this, R.string.item_search)
-                true
-            }
+//            R.id.menu_search -> {
+//                ToastUtil.showToast(this, R.string.item_search)
+//                true
+//            }
             R.id.menu_settings -> {
                 ToastUtil.showToast(this, R.string.item_settings)
                 true

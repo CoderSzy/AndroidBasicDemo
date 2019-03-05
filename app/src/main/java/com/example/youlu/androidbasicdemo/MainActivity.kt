@@ -1,12 +1,10 @@
 package com.example.youlu.androidbasicdemo
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
 import com.example.youlu.androidbasicdemo.base.BaseActivity
 import com.example.youlu.androidbasicdemo.camera.CameraTestActivity
-import com.example.youlu.androidbasicdemo.menu.MenuTestActivity
+import com.example.youlu.androidbasicdemo.ui.menu.MenuTestActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), View.OnClickListener {

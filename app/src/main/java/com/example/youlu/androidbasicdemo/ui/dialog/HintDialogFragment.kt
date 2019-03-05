@@ -1,4 +1,4 @@
-package com.example.youlu.androidbasicdemo.dialog
+package com.example.youlu.androidbasicdemo.ui.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
