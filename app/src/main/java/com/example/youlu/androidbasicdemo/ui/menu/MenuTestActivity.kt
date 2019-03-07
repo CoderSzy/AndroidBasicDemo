@@ -148,14 +148,16 @@ class MenuTestActivity : BaseActivity(), View.OnLongClickListener, HintDialogFra
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_options, menu)
-//        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-//        val menuItem = menu?.findItem(R.id.menu_search)
-//        val searchView = menuItem?.actionView as SearchView?
-//        searchView?.apply {
-//            setSearchableInfo(searchManager.getSearchableInfo(
-//                    ComponentName(this@MenuTestActivity,"com.example.youlu.androidbasicdemo.ui.search.SearchableActivity")))
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val menuItem = menu?.findItem(R.id.menu_search)
+        val searchView = menuItem?.actionView as SearchView?
+        searchView?.apply {
+            setSearchableInfo(searchManager.getSearchableInfo(
+                    ComponentName(this@MenuTestActivity,"com.example.youlu.androidbasicdemo.ui.search.SearchableActivity")))
 //            setIconifiedByDefault(false)
-//        }
+            isSubmitButtonEnabled = true
+            isQueryRefinementEnabled = true
+        }
         return true
     }
 
